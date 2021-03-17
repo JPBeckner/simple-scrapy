@@ -13,3 +13,10 @@ class BookItem(Item):
     in_stock = Field()
     rating = Field()
     image_url = Field()
+
+
+class QuoteItem(Item):
+    
+    quote = Field()
+    author = Field()
+    tags = Field()
