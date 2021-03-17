@@ -27,3 +27,13 @@ Spider that scrape the site [quotes to scrape](http://quotes.toscrape.com)
     }
   ```
 
+### Runing
+Simple local running:
+```shell
+# with the project cloned, start the pipenv
+pipenv install
+pipenv shell
+
+# execute the `runner` to save the extracted data
+python3 runner.py
+```
