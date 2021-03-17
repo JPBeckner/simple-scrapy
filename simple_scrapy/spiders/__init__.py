@@ -3,5 +3,6 @@
 # Please refer to the documentation for information on how to create and manage
 # your spiders.
 from .books import BooksSpider
+from .quotes import QuotesSpider
 
-__all__ = ['BookSpider']
+__all__ = ['BooksSpider', 'QuotesSpider']

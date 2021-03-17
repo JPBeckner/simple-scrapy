@@ -20,6 +20,21 @@ class BooksSpider(Spider):
         'five': 5
     }
 
+    custom_settings = {
+        'FEEDS': {  
+            'saved-data-extracted/books.json': {
+                'format': 'json',
+                'encoding': 'utf8',
+                'store_empty': False,
+                'fields': None,
+                'indent': 4,
+                'item_export_kwargs': {
+                    'export_empty_fields': True,
+                },
+            }
+        }
+    }
+
     def parse(self, response: Response):
         first_page, last_page = findall(r'\d+', response.xpath("//*[contains(@class, 'pager')]/*/text()").get('0 0'))
         for page in range(int(first_page), int(last_page)):
@@ -43,11 +58,10 @@ class BooksSpider(Spider):
             price = float('.'.join(findall(r'\d+', product_price.xpath("./p[contains(@class, 'price')]/text()").get(''))))
             stock: bool = 'ok' in product_price.xpath("./p[contains(@class, 'instock')]/i/@class").get('')
 
-            book_item = {
+            yield BookItem({
                 'title': title,
                 'price': price,
                 'in_stock': stock,
                 'rating': rating,
                 'image_url': image_url,
-            }
-            yield BookItem(book_item)
+            })
