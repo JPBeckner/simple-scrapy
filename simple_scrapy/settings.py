@@ -76,7 +76,7 @@ FEEDS = {  # ???
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'simple_scrapy.pipelines.BookPipeline': 300,
+    'simple_scrapy.pipelines.SimpleScrapyPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
