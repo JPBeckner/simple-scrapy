@@ -19,19 +19,6 @@ USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Ge
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-FEEDS = {  # ???
-    'simple-scrapy/register.json': {
-        'format': 'json',
-        'encoding': 'utf8',
-        'store_empty': False,
-        'fields': None,
-        'indent': 4,
-        'item_export_kwargs': {
-           'export_empty_fields': True,
-        },
-    }
-}
-
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
