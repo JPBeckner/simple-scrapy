@@ -36,6 +36,10 @@ class BooksSpider(Spider):
     }
 
     def parse(self, response: Response):
+        """
+        Método default chamado pelo scrapy após as requests iniciais.
+        """
+
         first_page, last_page = findall(r'\d+', response.xpath("//*[contains(@class, 'pager')]/*/text()").get('0 0'))
         for page in range(int(first_page), int(last_page)):
             yield Request(
